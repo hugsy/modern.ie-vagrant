@@ -4,7 +4,7 @@
 # $ gem install winrm
 # $ vagrant plugin install winrm
 #
-# On first boot, ensure you have Internet and execute in a Admin cmd.exe
+# On first boot, ensure you have Internet access and execute in a Admin cmd.exe
 # \\vboxsrv\vagrant\scripts\RunFirstBoot.bat
 #
 
@@ -30,6 +30,10 @@ Vagrant.configure("2") do |config|
   ## Box
   config.vm.box = "modern.ie/#{VM}"
   config.vm.box_url = "http://aka.ms/vagrant-#{VM}"
+
+  ### win10
+  ### config.vm.box = "wilkynet/win10pro64"
+  ### config.vm.box = "wilkynet/win10pro32"
 
   ## Shares
   config.vm.synced_folder "~/tmp", "tmp", create: false, disabled: false, id: "tmp"
