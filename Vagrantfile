@@ -9,6 +9,9 @@
 #
 
 VMS = [
+  "xp-ie6",
+  "xp-ie8",
+  "vista-ie7",
   "win7-ie8",
   "win7-ie9",
   "win7-ie10",
@@ -18,7 +21,7 @@ VMS = [
 
 ]
 
-VM = VMS[4] # change here to an index in the array VMS
+VM = VMS[6] # change here to an index in the array VMS (default: win7-ie11)
 
 MINUTE = 60
 
