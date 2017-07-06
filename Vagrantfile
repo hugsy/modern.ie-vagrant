@@ -32,10 +32,6 @@ Vagrant.configure("2") do |config|
   config.vm.box = "modern.ie/#{VM}"
   config.vm.box_url = "http://aka.ms/#{VM}"
 
-  ### win10
-  ### config.vm.box = "wilkynet/win10pro64"
-  ### config.vm.box = "wilkynet/win10pro32"
-
   ## Shares
   config.vm.synced_folder "~/tmp", "tmp", create: false, disabled: false, id: "tmp"
   config.vm.synced_folder "~/tools/win", "tools", create: false, disabled: false, id: "tools"
