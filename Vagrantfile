@@ -9,16 +9,17 @@
 #
 
 VMS = [
-  "xp-ie6",
-  "xp-ie8",
-  "vista-ie7",
-  "win7-ie8",
-  "win7-ie9",
-  "win7-ie10",
-  "win7-ie11",
-  "win8-ie10",
-  "win81-ie11",
-
+  "vagrant-xp-ie6",
+  "vagrant-xp-ie8",
+  "vagrant-vista-ie7",
+  "vagrant-win7-ie8",
+  "vagrant-win7-ie9",
+  "vagrant-win7-ie10",
+  "vagrant-win7-ie11",
+  "vagrant-win8-ie10",
+  "vagrant-win81-ie11",
+  "msedge.win10.vagrant",
+  
 ]
 
 VM = VMS[6] # change here to an index in the array VMS (default: win7-ie11)
@@ -29,7 +30,7 @@ Vagrant.configure("2") do |config|
 
   ## Box
   config.vm.box = "modern.ie/#{VM}"
-  config.vm.box_url = "http://aka.ms/vagrant-#{VM}"
+  config.vm.box_url = "http://aka.ms/#{VM}"
 
   ### win10
   ### config.vm.box = "wilkynet/win10pro64"
