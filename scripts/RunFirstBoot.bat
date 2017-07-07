@@ -1,7 +1,7 @@
-@xcopy /Y "\\vboxsrv\vagrant\scripts\wallpaper.jpg" "C:\Users\IEUser\"
-@xcopy /Y "\\vboxsrv\vagrant\scripts\SetWallPaper.ps1" "C:\Users\IEUser\"
-@xcopy /Y "\\vboxsrv\vagrant\scripts\SetWallPaper.bat" "C:\Users\IEUser\"
-@xcopy /Y "\\vboxsrv\vagrant\scripts\SetWallpaper.bat" "C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
+@xcopy "\\vboxsrv\vagrant\scripts\wallpaper.jpg" "C:\Users\IEUser\" /y
+@xcopy "\\vboxsrv\vagrant\scripts\SetWallPaper.ps1" "C:\Users\IEUser\" /y
+@xcopy "\\vboxsrv\vagrant\scripts\SetWallPaper.bat" "C:\Users\IEUser\" /y
+@xcopy "\\vboxsrv\vagrant\scripts\SetWallpaper.bat" "C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\" /y
 
 @reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v SetWallpaper /d "C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\SetWallpaper.bat"
 
