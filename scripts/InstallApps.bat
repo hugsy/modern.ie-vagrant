@@ -5,3 +5,5 @@ C:\ProgramData\Chocolatey\choco.exe install -y --force firefox
 C:\ProgramData\Chocolatey\choco.exe install -y --force GoogleChrome
 C:\ProgramData\Chocolatey\choco.exe install -y --force ccleaner
 C:\ProgramData\Chocolatey\choco.exe install -y --force ollydbg
+C:\ProgramData\Chocolatey\choco.exe install -y --force irfanview
+C:\ProgramData\Chocolatey\choco.exe install -y --force FoxitReader
