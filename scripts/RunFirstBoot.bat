@@ -5,6 +5,7 @@
 
 @reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v SetWallpaper /d "C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\SetWallpaper.bat"
 
+powershell -ExecutionPolicy Bypass "Set-NetConnectionProfile -NetworkCategory Private"
 netsh advfirewall firewall set rule group="remote administration" new enable=yes
 netsh advfirewall firewall add rule name="Open Port 5985" dir=in action=allow protocol=TCP localport=5985
 netsh advfirewall firewall add rule name="Open Port 3389" dir=in action=allow protocol=TCP localport=3389
