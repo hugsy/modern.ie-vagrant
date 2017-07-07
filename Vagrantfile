@@ -56,6 +56,7 @@ Vagrant.configure("2") do |config|
 
   ## Remote Access (WinRM)
   config.vm.communicator = "winrm"
+  config.winrm.host = "localhost"
   config.winrm.username = "IEUser"
   config.winrm.password = "Passw0rd!"
   config.winrm.retry_limit = 30
@@ -82,6 +83,7 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
+    vb.customize ["modifyvm", :id, "--ioapic", "on"]
     vb.customize ["guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 10000]
     vb.customize ["modifyvm", :id, "--vrde", "on"]
     vb.customize ["modifyvm", :id, "--vrdeport", "3940"] # change here to a free port
