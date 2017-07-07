@@ -10,7 +10,7 @@
 
 VMS = [
   "vagrant-xp-ie6",        # 0
-  "vagrant-xp-ie8",        # 1 
+  "vagrant-xp-ie8",        # 1
   "vagrant-vista-ie7",     # 2
   "vagrant-win7-ie8",      # 3
   "vagrant-win7-ie9",      # 4
@@ -34,7 +34,7 @@ Vagrant.configure("2") do |config|
   else
     config.vm.box_url = "http://aka.ms/#{VM}"
   end
-  
+
   ## Shares
   config.vm.synced_folder "~/tmp", "/tmp", create: true, disabled: false, id: "tmp"
   config.vm.synced_folder "~/tools/win", "/tools", create: true, disabled: false, id: "tools"
@@ -51,7 +51,7 @@ Vagrant.configure("2") do |config|
   ## Network
   config.vm.hostname = "#{VM}"
   config.vm.network :forwarded_port, guest: 3389, host: 3389, id: "rdp", auto_correct: true
-  config.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
+  # config.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
   config.vm.network :private_network, type: "dhcp", :adapter => 2
 
   ## Remote Access (WinRM)
@@ -82,5 +82,8 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
+
+    vb.customize ["modifyvm", :id, "--vrde", "on"]
+    vb.customize ["modifyvm", :id, "--vrdeport", "3940"] # change here to a free port
   end
 end
