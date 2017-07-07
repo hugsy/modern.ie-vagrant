@@ -21,10 +21,11 @@ VMS = [
   "vagrant-win10-msedge",  # 9
 ]
 
-VM = ENV['VM'] || VMS[6] # change here to an index in the array VMS (default: win7-ie11)
+VM = ENV['VM'] || VMS[6]      # change to an index in the array VMS (default: win7-ie11)
+$FirstBoot = true             # change to false here after RunFirstBoot was executed
 
 MINUTE = 60
-$FirstBoot = true # change to false here after RunFirstBoot was executed
+
 
 Vagrant.configure("2") do |config|
 
