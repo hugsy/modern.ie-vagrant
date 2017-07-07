@@ -9,17 +9,16 @@
 #
 
 VMS = [
-  "vagrant-xp-ie6",
-  "vagrant-xp-ie8",
-  "vagrant-vista-ie7",
-  "vagrant-win7-ie8",
-  "vagrant-win7-ie9",
-  "vagrant-win7-ie10",
-  "vagrant-win7-ie11",
-  "vagrant-win8-ie10",
-  "vagrant-win81-ie11",
-  "msedge.win10.vagrant",
-  
+  "vagrant-xp-ie6",        # 0
+  "vagrant-xp-ie8",        # 1 
+  "vagrant-vista-ie7",     # 2
+  "vagrant-win7-ie8",      # 3
+  "vagrant-win7-ie9",      # 4
+  "vagrant-win7-ie10",     # 5
+  "vagrant-win7-ie11",     # 6  <default>
+  "vagrant-win8-ie10",     # 7
+  "vagrant-win81-ie11",    # 8
+  "msedge.win10.vagrant",  # 9
 ]
 
 VM = VMS[6] # change here to an index in the array VMS (default: win7-ie11)
