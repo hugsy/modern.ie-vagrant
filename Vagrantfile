@@ -21,7 +21,7 @@ VMS = [
   "vagrant-win10-msedge",  # 9
 ]
 
-VM = VMS[6] # change here to an index in the array VMS (default: win7-ie11)
+VM = ENV['VM'] or VMS[6] # change here to an index in the array VMS (default: win7-ie11)
 
 MINUTE = 60
 
