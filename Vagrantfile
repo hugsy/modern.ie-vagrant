@@ -64,7 +64,7 @@ Vagrant.configure("2") do |config|
   ## Other
   config.vm.provider "virtualbox" do |vb|
     # Set to false once provisioning after 1st boot
-    vb.gui = true
+    # vb.gui = true
 
     if VM.include? "win7"
       vb.customize ["modifyvm", :id, "--memory", "1024"]
