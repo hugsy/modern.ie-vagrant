@@ -21,3 +21,9 @@ winrm set winrm/config/client/auth '@{Basic="true"}'
 net stop winrm
 sc.exe config "WinRM" start= auto
 net start winrm
+
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+
+sc.exe config TermService start= auto
+net start termservice
