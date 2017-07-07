@@ -24,7 +24,7 @@ VMS = [
 VM = ENV['VM'] || VMS[6] # change here to an index in the array VMS (default: win7-ie11)
 
 MINUTE = 60
-FirstBoot = true
+$FirstBoot = true # change to false here after RunFirstBoot was executed
 
 Vagrant.configure("2") do |config|
 
@@ -65,7 +65,8 @@ Vagrant.configure("2") do |config|
 
   ## Other
   config.vm.provider "virtualbox" do |vb|
-    if FirstBoot?
+
+    if $FirstBoot==true
       vb.gui = true
       vb.customize ["modifyvm", :id, "--vrde", "on"]
       vb.customize ["modifyvm", :id, "--vrdeport", "3940"] # change here to a free port
