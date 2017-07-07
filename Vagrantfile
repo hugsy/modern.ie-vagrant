@@ -18,7 +18,7 @@ VMS = [
   "vagrant-win7-ie11",     # 6  <default>
   "vagrant-win8-ie10",     # 7
   "vagrant-win81-ie11",    # 8
-  "msedge.win10.vagrant",  # 9
+  "vagrant-win10-msedge",  # 9
 ]
 
 VM = VMS[6] # change here to an index in the array VMS (default: win7-ie11)
@@ -29,11 +29,15 @@ Vagrant.configure("2") do |config|
 
   ## Box
   config.vm.box = "modern.ie/#{VM}"
-  config.vm.box_url = "http://aka.ms/#{VM}"
-
+  if VM=="vagrant-win10-msedge"
+    config.vm.box_url = "https://vagrantcloud.com/Microsoft/boxes/EdgeOnWindows10/versions/1.0/providers/virtualbox.box"
+  else
+    config.vm.box_url = "http://aka.ms/#{VM}"
+  end
+  
   ## Shares
-  config.vm.synced_folder "~/tmp", "tmp", create: false, disabled: false, id: "tmp"
-  config.vm.synced_folder "~/tools/win", "tools", create: false, disabled: false, id: "tools"
+  config.vm.synced_folder "~/tmp", "tmp", create: true, disabled: false, id: "tmp"
+  config.vm.synced_folder "~/tools/win", "tools", create: true, disabled: false, id: "tools"
 
   ## System
   config.vm.guest = :windows
