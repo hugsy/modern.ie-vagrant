@@ -24,6 +24,7 @@ VMS = [
 VM = ENV['VM'] || VMS[6] # change here to an index in the array VMS (default: win7-ie11)
 
 MINUTE = 60
+FirstBoot = true
 
 Vagrant.configure("2") do |config|
 
@@ -64,14 +65,26 @@ Vagrant.configure("2") do |config|
 
   ## Other
   config.vm.provider "virtualbox" do |vb|
-    # Set to false once provisioning after 1st boot
-    # vb.gui = true
+    if FirstBoot?
+      vb.gui = true
+      vb.customize ["modifyvm", :id, "--vrde", "on"]
+      vb.customize ["modifyvm", :id, "--vrdeport", "3940"] # change here to a free port
+    else
+      vb.gui = false
+      vb.customize ["modifyvm", :id, "--vrde", "off"]
+    end
 
     if VM.include? "win7"
       vb.customize ["modifyvm", :id, "--memory", "1024"]
       vb.customize ["modifyvm", :id, "--cpus", "1"]
     elsif VM.include? "win8"
       vb.customize ["modifyvm", :id, "--memory", "2048"]
+      vb.customize ["modifyvm", :id, "--cpus", "1"]
+    elsif VM.include? "xp"
+      vb.customize ["modifyvm", :id, "--memory", "512"]
+      vb.customize ["modifyvm", :id, "--cpus", "1"]
+    elsif VM.include? "vista"
+      vb.customize ["modifyvm", :id, "--memory", "1024"]
       vb.customize ["modifyvm", :id, "--cpus", "1"]
     else
       # Win10
@@ -85,7 +98,5 @@ Vagrant.configure("2") do |config|
     vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
     vb.customize ["modifyvm", :id, "--ioapic", "on"]
     vb.customize ["guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 10000]
-    vb.customize ["modifyvm", :id, "--vrde", "on"]
-    vb.customize ["modifyvm", :id, "--vrdeport", "3940"] # change here to a free port
   end
 end
