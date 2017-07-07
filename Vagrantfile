@@ -36,8 +36,8 @@ Vagrant.configure("2") do |config|
   end
   
   ## Shares
-  config.vm.synced_folder "~/tmp", "tmp", create: true, disabled: false, id: "tmp"
-  config.vm.synced_folder "~/tools/win", "tools", create: true, disabled: false, id: "tools"
+  config.vm.synced_folder "~/tmp", "/tmp", create: true, disabled: false, id: "tmp"
+  config.vm.synced_folder "~/tools/win", "/tools", create: true, disabled: false, id: "tools"
 
   ## System
   config.vm.guest = :windows
