@@ -33,3 +33,6 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v
 
 sc.exe config TermService start= auto
 net start termservice
+
+\\vboxsrv\vagrant\scripts\InstallChocolatey.bat
+\\vboxsrv\vagrant\scripts\InstallApps.bat

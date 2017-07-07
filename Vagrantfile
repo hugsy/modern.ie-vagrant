@@ -48,11 +48,6 @@ Vagrant.configure("2") do |config|
   config.vm.guest = :windows
   config.vm.boot_timeout = 30*MINUTE
 
-  ## Provisioning
-  config.vm.provision :shell, path: "./scripts/RunFirstBoot.bat"
-  config.vm.provision :shell, path: "./scripts/InstallChocolatey.bat"
-  config.vm.provision :shell, path: "./scripts/InstallApps.bat"
-
   ## Network
   config.vm.hostname = "#{VM}"
   if $FirstBoot==false
