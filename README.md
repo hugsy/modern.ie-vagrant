@@ -13,6 +13,7 @@ To create a new Modern.IE box:
    ```bash
    $ vagrant up --provision
    ```
+   * Once the VM has been correctly installed and provisioned by Vagrant, edit `Vagrantfile` and change the line `vb.gui = true` to `vb.gui = false`.
    
 That's it!
    
