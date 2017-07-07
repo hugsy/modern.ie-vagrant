@@ -21,7 +21,7 @@ VMS = [
   "vagrant-win10-msedge",  # 9
 ]
 
-VM = ENV['VM'] or VMS[6] # change here to an index in the array VMS (default: win7-ie11)
+VM = ENV['VM'] || VMS[6] # change here to an index in the array VMS (default: win7-ie11)
 
 MINUTE = 60
 
@@ -82,7 +82,7 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
-
+    vb.customize ["guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 10000]
     vb.customize ["modifyvm", :id, "--vrde", "on"]
     vb.customize ["modifyvm", :id, "--vrdeport", "3940"] # change here to a free port
   end
