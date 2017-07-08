@@ -4,8 +4,20 @@
 @xcopy "\\vboxsrv\vagrant\scripts\SetWallpaper.bat" "C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\" /y
 @reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v SetWallpaper /d "C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\SetWallpaper.bat" /f
 
-\\vboxsrv\vagrant\scripts\InstallChocolatey.bat
-\\vboxsrv\vagrant\scripts\InstallApps.bat
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+choco.exe install -y --force GoogleChrome
+choco.exe install -y --force firefox
+choco.exe install -y --force notepadplusplus.install
+choco.exe install -y --force SublimeText3
+choco.exe install -y --force git
+choco.exe install -y --force conemu
+choco.exe install -y --force ccleaner
+choco.exe install -y --force irfanview
+choco.exe install -y --force FoxitReader
+choco.exe install -y --force ollydbg
+choco.exe install -y --force 010editor.install
+choco.exe install -y --force windbg
+choco.exe install -y --force x64dbg.portable
 
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "Set-NetConnectionProfile -NetworkCategory Private"
 
