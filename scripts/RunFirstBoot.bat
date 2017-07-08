@@ -23,6 +23,9 @@ call winrm quickconfig -transport:http
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "Set-Item WSMan:\localhost\Service\Auth\Basic -Value True"
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "Set-Item WSMan:\localhost\Client\Auth\Basic -Value True"
 
+\\vboxsrv\vagrant\scripts\InstallChocolatey.bat
+\\vboxsrv\vagrant\scripts\InstallApps.bat
+
 net stop winrm
 sc triggerinfo winrm start/networkon stop/networkoff
 sc.exe config "WinRM" start= auto
@@ -33,6 +36,3 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v
 
 sc.exe config TermService start= auto
 net start termservice
-
-\\vboxsrv\vagrant\scripts\InstallChocolatey.bat
-\\vboxsrv\vagrant\scripts\InstallApps.bat
