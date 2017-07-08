@@ -4,9 +4,6 @@
 @xcopy "\\vboxsrv\vagrant\scripts\SetWallpaper.bat" "C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\" /y
 @reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v SetWallpaper /d "C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\SetWallpaper.bat" /f
 
-\\vboxsrv\vagrant\scripts\InstallChocolatey.bat
-\\vboxsrv\vagrant\scripts\InstallApps.bat
-
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "Set-NetConnectionProfile -NetworkCategory Private"
 
 netsh advfirewall firewall set rule group="remote administration" new enable=yes
