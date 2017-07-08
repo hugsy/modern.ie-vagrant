@@ -2,8 +2,10 @@
 @xcopy "\\vboxsrv\vagrant\scripts\SetWallPaper.ps1" "C:\Users\IEUser\" /y
 @xcopy "\\vboxsrv\vagrant\scripts\SetWallPaper.bat" "C:\Users\IEUser\" /y
 @xcopy "\\vboxsrv\vagrant\scripts\SetWallpaper.bat" "C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\" /y
-
 @reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v SetWallpaper /d "C:\Users\IEUser\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\SetWallpaper.bat" /f
+
+\\vboxsrv\vagrant\scripts\InstallChocolatey.bat
+\\vboxsrv\vagrant\scripts\InstallApps.bat
 
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "Set-NetConnectionProfile -NetworkCategory Private"
 
@@ -22,9 +24,6 @@ call winrm quickconfig -transport:http
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "Set-Item WSMan:\localhost\Service\AllowUnencrypted -Value True"
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "Set-Item WSMan:\localhost\Service\Auth\Basic -Value True"
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "Set-Item WSMan:\localhost\Client\Auth\Basic -Value True"
-
-\\vboxsrv\vagrant\scripts\InstallChocolatey.bat
-\\vboxsrv\vagrant\scripts\InstallApps.bat
 
 net stop winrm
 sc triggerinfo winrm start/networkon stop/networkoff
