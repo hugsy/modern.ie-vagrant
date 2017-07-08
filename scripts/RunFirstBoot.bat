@@ -13,6 +13,12 @@ netsh advfirewall firewall set rule group="remote administration" new enable=yes
 netsh advfirewall firewall add rule name="Open Port 5985" dir=in action=allow protocol=TCP localport=5985
 netsh advfirewall firewall add rule name="Open Port 3389" dir=in action=allow protocol=TCP localport=3389
 
+net stop termservice
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+sc.exe config TermService start= auto
+net start termservice
+
 call winrm quickconfig -q
 call winrm quickconfig -transport:http
 
@@ -29,9 +35,3 @@ net stop winrm
 sc triggerinfo winrm start/networkon stop/networkoff
 sc.exe config "WinRM" start= auto
 net start winrm
-
-reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
-reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-
-sc.exe config TermService start= auto
-net start termservice
