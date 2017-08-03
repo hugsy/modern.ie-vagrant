@@ -25,7 +25,7 @@ VMS = [
 ]
 
 VM = ENV['VM'] || VMS[6]      # change to an index in the array VMS (default: win7-ie11)
-$FirstBoot = true             # change to false here after RunFirstBoot was executed
+$FirstBoot = ENV['FIRST_BOOT'] ? true : false            # change to false here after RunFirstBoot was executed
 
 MINUTE = 60
 
