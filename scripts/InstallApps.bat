@@ -11,3 +11,4 @@ C:\ProgramData\Chocolatey\choco.exe install -y --force ollydbg
 C:\ProgramData\Chocolatey\choco.exe install -y --force 010editor.install
 C:\ProgramData\Chocolatey\choco.exe install -y --force windbg
 C:\ProgramData\Chocolatey\choco.exe install -y --force x64dbg.portable
+C:\ProgramData\Chocolatey\choco.exe install -y --force HxD
