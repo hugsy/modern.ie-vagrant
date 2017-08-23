@@ -84,10 +84,10 @@ Vagrant.configure("2") do |config|
       vb.customize ["modifyvm", :id, "--memory", "2048"]
       vb.customize ["modifyvm", :id, "--cpus", "1"]
     elsif VM.include? "xp"
-      vb.customize ["modifyvm", :id, "--memory", "512"]
+      vb.customize ["modifyvm", :id, "--memory", "128"]
       vb.customize ["modifyvm", :id, "--cpus", "1"]
     elsif VM.include? "vista"
-      vb.customize ["modifyvm", :id, "--memory", "1024"]
+      vb.customize ["modifyvm", :id, "--memory", "512"]
       vb.customize ["modifyvm", :id, "--cpus", "1"]
     else
       # Win10
