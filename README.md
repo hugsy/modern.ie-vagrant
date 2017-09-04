@@ -9,11 +9,13 @@ To create a new Modern.IE box:
    $ vagrant plugin install winrm
    ```
    * Clone this repo and edit `Vagrantfile` to change the line `VM = VMS[<id>]` where `id` is the index of the box you want to have
-   * Launch Vagrant 
+   * Launch Vagrant the first time like this
    ```bash
-   $ vagrant up --provision
+   $ FIRSTBOOT=1 vagrant up --provision
    ```
-   * Once the VM has been correctly installed and provisioned by Vagrant, edit `Vagrantfile` and change the line `vb.gui = true` to `vb.gui = false`.
+   * Execute `scripts/RunFirstBoot.bat` as Administrator
+   
+The next boot can be done without the `FIRSTBOOT` environment variable.
    
 That's it!
    
