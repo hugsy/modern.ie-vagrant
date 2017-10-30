@@ -8,3 +8,4 @@ C:\ProgramData\Chocolatey\choco.exe install -y --force sumatrapdf sumatrapdf.ins
 C:\ProgramData\Chocolatey\choco.exe install -y --force windbg
 C:\ProgramData\Chocolatey\choco.exe install -y --force x64dbg.portable
 C:\ProgramData\Chocolatey\choco.exe install -y --force HxD
+C:\ProgramData\Chocolatey\choco.exe install -y --force 7zip.install
