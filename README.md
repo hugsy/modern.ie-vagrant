@@ -4,7 +4,7 @@ Modern.ie for Vagrant
 
 To create a new Modern.IE box:
 
-   * Make sure `winrm` plugin is installed
+   * (Optional) Make sure `winrm` plugin is installed
    ```bash
    $ vagrant plugin install winrm
    ```
