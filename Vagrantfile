@@ -29,6 +29,19 @@ $FirstBoot = ENV['FIRSTBOOT'] ? true : false            # change to false here a
 
 MINUTE = 60
 
+# install plugins
+required_plugins = %w( winrm )
+_retry = false
+required_plugins.each do |plugin|
+  unless Vagrant.has_plugin? plugin
+    system "vagrant plugin install #{plugin}"
+    _retry=true
+  end
+end
+
+if (_retry)
+  exec "vagrant " + ARGV.join(' ')
+end
 
 Vagrant.configure("2") do |config|
 
