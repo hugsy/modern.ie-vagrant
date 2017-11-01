@@ -1,3 +1,4 @@
+C:\ProgramData\Chocolatey\choco.exe install -y --force ConEmu
 C:\ProgramData\Chocolatey\choco.exe install -y --force GoogleChrome
 C:\ProgramData\Chocolatey\choco.exe install -y --force SysInternals
 C:\ProgramData\Chocolatey\choco.exe install -y --force firefox
