@@ -3,7 +3,6 @@ C:\ProgramData\Chocolatey\choco.exe install -y --force GoogleChrome
 C:\ProgramData\Chocolatey\choco.exe install -y --force SysInternals
 C:\ProgramData\Chocolatey\choco.exe install -y --force firefox
 C:\ProgramData\Chocolatey\choco.exe install -y --force notepadplusplus.install
-C:\ProgramData\Chocolatey\choco.exe install -y --force conemu
 C:\ProgramData\Chocolatey\choco.exe install -y --force irfanview
 C:\ProgramData\Chocolatey\choco.exe install -y --force sumatrapdf sumatrapdf.install
 C:\ProgramData\Chocolatey\choco.exe install -y --force windbg
