@@ -1,6 +1,7 @@
 C:\ProgramData\Chocolatey\choco.exe install -y --force ConEmu
 C:\ProgramData\Chocolatey\choco.exe install -y --force GoogleChrome
 C:\ProgramData\Chocolatey\choco.exe install -y --force SysInternals
+C:\ProgramData\Chocolatey\choco.exe install -y --force processhacker.install
 C:\ProgramData\Chocolatey\choco.exe install -y --force firefox
 C:\ProgramData\Chocolatey\choco.exe install -y --force notepadplusplus.install
 C:\ProgramData\Chocolatey\choco.exe install -y --force irfanview
