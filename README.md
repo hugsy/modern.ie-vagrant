@@ -16,6 +16,7 @@ To create a new Modern.IE box:
    ```bash
    $ FIRSTBOOT=1 vagrant up --provision
    ```
+   * When Windows prompts for the type of network for the new interface, choose either `Home` or `Work` (`public` will make the firewall block all WinRM communication)
    * Execute `scripts/RunFirstBoot.bat` as Administrator
    
 The next boot can be done without the `FIRSTBOOT` environment variable, WinRM and RDP will work properly. 
