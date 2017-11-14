@@ -8,14 +8,16 @@ To create a new Modern.IE box:
    ```bash
    $ vagrant plugin install winrm
    ```
-   * Clone this repo and edit `Vagrantfile` to change the line `VM = VMS[<id>]` where `id` is the index of the box you want to have
-   * Launch Vagrant the first time like this
+   * Clone this repo and edit `Vagrantfile` to change the line `VM = VMS[<id>]` where `id` is the index of the box you want to have (default: Windows 7 / IE11)
+   ```bash
+   $ git clone https://github.com/hugsy/modern.ie-vagrant.git win7
+   ```  
+   * Launch Vagrant the first time with the environment `FIRSTBOOT` set to `1`
    ```bash
    $ FIRSTBOOT=1 vagrant up --provision
    ```
    * Execute `scripts/RunFirstBoot.bat` as Administrator
    
-The next boot can be done without the `FIRSTBOOT` environment variable.
+The next boot can be done without the `FIRSTBOOT` environment variable, WinRM and RDP will work properly. 
    
-That's it!
-   
+That's it!!
