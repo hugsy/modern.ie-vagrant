@@ -3,11 +3,6 @@
 Modern.ie for Vagrant 
 
 To create a new Modern.IE box:
-
-   * (Optional) Make sure `winrm` plugin is installed
-   ```bash
-   $ vagrant plugin install winrm
-   ```
    * Clone this repo and edit `Vagrantfile` to change the line `VM = VMS[<id>]` where `id` is the index of the box you want to have (default: Windows 7 / IE11)
    ```bash
    $ git clone https://github.com/hugsy/modern.ie-vagrant.git win7
