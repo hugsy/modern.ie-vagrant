@@ -1,8 +1,5 @@
 # -*- mode: ruby -*-
 #
-# Run :
-# $ gem install winrm
-# $ vagrant plugin install winrm
 #
 # On first boot, ensure you have Internet access and execute in a Admin cmd.exe
 # \\vboxsrv\vagrant\scripts\RunFirstBoot.bat
