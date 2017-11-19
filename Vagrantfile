@@ -30,7 +30,7 @@ $FirstBoot = ENV['FIRSTBOOT'] ? true : false            # change to false here a
 MINUTE = 60
 
 # install plugins
-required_plugins = %w( winrm )
+required_plugins = %w( winrm rdp )
 _retry = false
 required_plugins.each do |plugin|
   unless Vagrant.has_plugin? plugin
