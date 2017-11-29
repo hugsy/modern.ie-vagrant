@@ -8,4 +8,5 @@ C:\ProgramData\Chocolatey\choco.exe install -y --force irfanview
 C:\ProgramData\Chocolatey\choco.exe install -y --force sumatrapdf sumatrapdf.install
 C:\ProgramData\Chocolatey\choco.exe install -y --force windbg
 C:\ProgramData\Chocolatey\choco.exe install -y --force HxD
+C:\ProgramData\Chocolatey\choco.exe install -y --force doublecmd
 C:\ProgramData\Chocolatey\choco.exe install -y --force 7zip.install
