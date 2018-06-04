@@ -53,7 +53,7 @@ if !list_vms.include? vm_name
   puts "=> Importing the box '#{vm_name}'..."
   system "bash -c 'cd / && vagrant box add --name #{vm_name}  /tmp/#{VM}/*.box'"
   puts "=> Cleaning up..."
-  system "rm -fr -- /tmp/#{VM} ` #/tmp/#{VM}.zip"
+  system "rm -fr -- /tmp/#{VM} /tmp/#{VM}.zip"
   puts "=> Done!"
   _retry = true
 end
