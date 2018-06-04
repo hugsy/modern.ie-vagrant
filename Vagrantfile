@@ -108,7 +108,7 @@ Vagrant.configure("2") do |config|
   ## Other
   config.vm.provider "virtualbox" do |vb|
 
-    if $FirstBoot==true
+    if FIRSTBOOT==true
       vb.gui = true
       vb.customize ["modifyvm", :id, "--vrde", "on"]
       vb.customize ["modifyvm", :id, "--vrdeport", "3940"] # change here to a free port
