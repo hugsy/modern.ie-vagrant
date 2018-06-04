@@ -7,6 +7,13 @@
 # To RDP to the box:
 # $ xfreerdp /v:<vagrant-host>:<port-selected-by-vagrant> /u:IEUser /p:'Passw0rd!'
 #
+# The script requires:
+# ruby
+# vagrant
+# wget
+# zip/unzip
+#
+
 
 VMS = [
   "ie6.xp.vagrant",        # 0
@@ -21,14 +28,39 @@ VMS = [
   "msedge.win10.vagrant",  # 9
 ]
 
-VM = ENV['VM'] || VMS[6]      # change to an index in the array VMS (default: win7-ie11)
-$FirstBoot = ENV['FIRSTBOOT'] ? true : false            # change to false here after RunFirstBoot was executed
+# change to an index in the array VMS (default: win7-ie11)
 
+VM = ENV['VM'] ? VMS[ ENV['VM'].to_i ] : VMS[6]
+FIRSTBOOT = ENV['FIRSTBOOT'] ? true : false            # change to false here after RunFirstBoot was executed
 MINUTE = 60
+
+_retry = false
+
+
+# install box
+list_vms=`vagrant box list`
+vm_name="modern.ie/#{VM}"
+if !list_vms.include? vm_name
+  puts "=> Missing #{vm_name}, downloading..."
+  if VM=="msedge.win10.vagrant"
+    url="https://vagrantcloud.com/Microsoft/boxes/EdgeOnWindows10/versions/1.0/providers/virtualbox.box"
+  else
+    url="http://aka.ms/#{VM}"
+  end
+  system "wget --no-check-certificate --output-document=/tmp/#{VM}.zip #{url}"
+  puts "=> Extracting image '#{VM}'..."
+  system "unzip -d /tmp/#{VM} /tmp/#{VM}.zip"
+  puts "=> Importing the box '#{vm_name}'..."
+  system "bash -c 'cd / && vagrant box add --name #{vm_name}  /tmp/#{VM}/*.box'"
+  puts "=> Cleaning up..."
+  system "rm -fr -- /tmp/#{VM} ` #/tmp/#{VM}.zip"
+  puts "=> Done!"
+  _retry = true
+end
+
 
 # install plugins
 required_plugins = %w( winrm rdp )
-_retry = false
 required_plugins.each do |plugin|
   unless Vagrant.has_plugin? plugin
     system "vagrant plugin install #{plugin}"
@@ -36,19 +68,17 @@ required_plugins.each do |plugin|
   end
 end
 
+
+# re-exec script
 if (_retry)
   exec "vagrant " + ARGV.join(' ')
 end
+
 
 Vagrant.configure("2") do |config|
 
   ## Box
   config.vm.box = "modern.ie/#{VM}"
-  if VM=="vagrant-win10-msedge"
-    config.vm.box_url = "https://vagrantcloud.com/Microsoft/boxes/EdgeOnWindows10/versions/1.0/providers/virtualbox.box"
-  else
-    config.vm.box_url = "http://aka.ms/#{VM}"
-  end
 
   ## Shares
   config.vm.synced_folder "~/tmp", "/tmp", create: true, disabled: false, id: "tmp"
@@ -62,7 +92,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "#{VM}"
   config.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
 
-  if $FirstBoot==false
+  if FIRSTBOOT==false
     config.vm.network :forwarded_port, guest: 3389, host: 3389, id: "rdp", auto_correct: true
     config.vm.network :private_network, type: "dhcp", :adapter => 2
   end
