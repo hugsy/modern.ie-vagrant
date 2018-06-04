@@ -89,7 +89,7 @@ Vagrant.configure("2") do |config|
   config.vm.boot_timeout = 30*MINUTE
 
   ## Network
-  config.vm.hostname = "#{VM}"
+  config.vm.hostname = VM.gsub(".","-")
   config.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
 
   if FIRSTBOOT==false
