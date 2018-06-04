@@ -113,6 +113,7 @@ Vagrant.configure("2") do |config|
       vb.gui = true
       vb.customize ["modifyvm", :id, "--vrde", "on"]
       vb.customize ["modifyvm", :id, "--vrdeport", "3940"] # change here to a free port
+      config.vm.post_up_message = "The VM is ready, don't forget to run \\\\vboxsrv\\vagrant\\scripts\\RunFirstBoot.bat as Admin to enable all the features!"
     else
       vb.gui = false
       vb.customize ["modifyvm", :id, "--vrde", "off"]
