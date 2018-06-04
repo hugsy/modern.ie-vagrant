@@ -1,7 +1,8 @@
 # -*- mode: ruby -*-
 #
 #
-# On first boot, ensure you have Internet access and execute in a Admin cmd.exe
+# On first boot, ensure you have Internet access, that the NAT interface is set to "Work" 
+# or "Home" (not "Public") and execute in a Admin cmd.exe
 # \\vboxsrv\vagrant\scripts\RunFirstBoot.bat
 #
 # To RDP to the box:
