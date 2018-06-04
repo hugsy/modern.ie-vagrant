@@ -2,7 +2,10 @@
 #
 #
 # On first boot, ensure you have Internet access, that the NAT interface is set to "Work" 
-# or "Home" (not "Public") and execute in a Admin cmd.exe
+# or "Home" (not "Public") 
+# Win+r > gpedit.msc > windows setting > security > network > set to "Private"
+#
+# Then execute in a Admin cmd.exe
 # \\vboxsrv\vagrant\scripts\RunFirstBoot.bat
 #
 # To RDP to the box:
