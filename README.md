@@ -13,9 +13,10 @@ To create a new Modern.IE box:
    $ cd win7 && FIRSTBOOT=1 vagrant up 
    ```
    _NOTE_: the `FIRSTBOOT` will force Vagrant to show a GUI for the VM, which is required to run the initial scripts and enable WinRM
-   * When Windows prompts for the type of network for the new interface, choose either `Home` or `Work` (`public` will make the firewall block 
+   * (XP only) WinRM must be installed first, so install the .Net Framework 2.0 then the KB968930 (both in `installers\xp`) 
+   * (Vista+) When Windows prompts for the type of network for the new interface, choose either `Home` or `Work` (`public` will make the firewall block 
    all WinRM communications)
-   * Once the interface is in `Home` or `Work` environment, execute as Administrator `scripts\RunFirstBoot.bat` (can be found under 
+   * Finally then execute as Administrator `scripts\RunFirstBoot.bat` (can be found under 
    `\\vboxsrv\vagrant\scripts\RunFirstBoot.bat`)
    
 The next boot can be done without the `FIRSTBOOT` environment variable, WinRM and RDP will work properly. 
