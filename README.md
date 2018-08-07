@@ -16,6 +16,8 @@ To create a new Modern.IE box:
    * (XP only) WinRM must be installed first, so install the .Net Framework 2.0 then the KB968930 (both in `installers\xp`) 
    * (Vista+) When Windows prompts for the type of network for the new interface, choose either `Home` or `Work` (`public` will make the firewall block 
    all WinRM communications)
+      * Win7 : https://support.microsoft.com/en-ca/help/2578723/windows-7-network-connections-are-stuck-in-public-mode
+      * Win8 & 10 : https://www.online-tech-tips.com/windows-10/change-from-public-to-private-network-in-windows-7-8-10/
    * Finally then execute as Administrator `scripts\RunFirstBoot.bat` (can be found under 
    `\\vboxsrv\vagrant\scripts\RunFirstBoot.bat`)
    
