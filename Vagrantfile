@@ -32,9 +32,9 @@ VMS = [
   "msedge.win10.vagrant",  # 9
 ]
 
-# change to an index in the array VMS (default: win7-ie11)
+VM_INDEX = 6 # change to an index in the array VMS (default: win7-ie11)
 
-VM = ENV['VM'] ? VMS[ ENV['VM'].to_i ] : VMS[6]
+VM = ENV['VM'] ? VMS[ ENV['VM'].to_i ] : VMS[VM_INDEX]
 FIRSTBOOT = ENV['FIRSTBOOT'] ? true : false            # change to false here after RunFirstBoot was executed
 MINUTE = 60
 
