@@ -9,7 +9,8 @@ C:\ProgramData\Chocolatey\choco.exe install -y --force sumatrapdf sumatrapdf.ins
 C:\ProgramData\Chocolatey\choco.exe install -y --force windbg
 REM C:\ProgramData\Chocolatey\choco.exe install -y --force windowsdriverkit10
 C:\ProgramData\Chocolatey\choco.exe install -y --force HxD
-C:\ProgramData\Chocolatey\choco.exe install -y --force doublecmd
+REM C:\ProgramData\Chocolatey\choco.exe install -y --force doublecmd
+C:\ProgramData\Chocolatey\choco.exe install -y --force explorersuite
 C:\ProgramData\Chocolatey\choco.exe install -y --force 7zip.install
-C:\ProgramData\Chocolatey\choco.exe install -y --force fzf
+REM C:\ProgramData\Chocolatey\choco.exe install -y --force fzf
 REM C:\ProgramData\Chocolatey\choco.exe install -y --force ditto.install
