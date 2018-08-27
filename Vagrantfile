@@ -85,9 +85,11 @@ Vagrant.configure("2") do |config|
   config.vm.box = "modern.ie/#{VM}"
 
   ## Shares
-  config.vm.synced_folder "~/tmp", "/tmp", create: true, disabled: false, id: "tmp"
-  config.vm.synced_folder "~/tools/win", "/tools", create: true, disabled: false, id: "tools"
-
+  config.vm.synced_folder "~/tmp", "/tmp", disabled: false
+  config.vm.synced_folder "~/tools", "/tools", disabled: false
+  config.vm.synced_folder "~/ctf", "/ctf", disabled: false
+  config.vm.synced_folder "~/symbols", "/symbols", disabled: false
+  
   ## System
   config.vm.guest = :windows
   config.vm.boot_timeout = 30*MINUTE
