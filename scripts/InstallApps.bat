@@ -12,3 +12,6 @@ C:\ProgramData\Chocolatey\choco.exe install -y --force HxD
 C:\ProgramData\Chocolatey\choco.exe install -y --force explorersuite
 C:\ProgramData\Chocolatey\choco.exe install -y --force 7zip.install
 C:\ProgramData\Chocolatey\choco.exe install -y --force apimonitor
+C:\ProgramData\Chocolatey\choco.exe install -y --force python2
+C:\ProgramData\Chocolatey\choco.exe install -y --force resourcehacker.portable
+
