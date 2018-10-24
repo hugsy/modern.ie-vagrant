@@ -87,7 +87,6 @@ Vagrant.configure("2") do |config|
   ## Shares
   config.vm.synced_folder "~/tmp", "/tmp", disabled: false
   config.vm.synced_folder "~/tools", "/tools", disabled: false
-  config.vm.synced_folder "~/ctf", "/ctf", disabled: false
   config.vm.synced_folder "~/symbols", "/symbols", disabled: false
   
   ## System
