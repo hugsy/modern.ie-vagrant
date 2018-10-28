@@ -110,6 +110,9 @@ Vagrant.configure("2") do |config|
   config.winrm.retry_limit = 30
   config.winrm.retry_delay = 10
 
+  ## Ensure the network interface is set to private
+  config.windows.set_work_network = true
+  
   ## Other
   config.vm.provider "virtualbox" do |vb|
 
