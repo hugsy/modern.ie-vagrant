@@ -20,6 +20,10 @@ C:\ProgramData\Chocolatey\choco.exe install -y apimonitor
 C:\ProgramData\Chocolatey\choco.exe install -y --ignore-checksums resourcehacker.portable
 
 
+REM Install Python modules
+C:\Python27\Scripts\pip2.exe install --no-color -y pywin32
+
+
 REM Install tools (x64 only)
 IF "%PROCESSOR_ARCHITECTURE%"=="x86" goto Finish
 C:\ProgramData\Chocolatey\choco.exe install -y ida-free
