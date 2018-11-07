@@ -59,7 +59,7 @@ reg delete HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo\ /v Id
 reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo\ /v Enabled /t REG_DWORD /d 0 /f
 
 REM settings -> privacy -> general -> let websites provide locally 
-reg add "HKCU\Control Panel\International\User Profile\ /v HttpAcceptLanguageOptOut" /t REG_DWORD /d 1 /f
+reg add "HKCU\Control Panel\International\User Profile\" /v HttpAcceptLanguageOptOut /t REG_DWORD /d 1 /f
 
 REM settings -> privacy -> general -> speech, inking, & typing
 reg add HKCU\SOFTWARE\Microsoft\InputPersonalization\ /v RestrictImplicitTextCollection /t REG_DWORD /d 1 /f
