@@ -75,4 +75,7 @@ powershell.exe -command "Get-Service DiagTrack | Set-Service -StartupType Disabl
 powershell.exe -command "Get-Service dmwappushservice | Set-Service -StartupType Disabled"
 reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection\ /v AllowTelemetry /t REG_DWORD /d 0 /f
 
+REM Enable Windows Defender sandboxing
+setx /M MP_FORCE_USE_SANDBOX 1
+
 REM Finished.
