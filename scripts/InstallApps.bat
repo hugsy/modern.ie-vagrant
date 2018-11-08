@@ -21,6 +21,7 @@ C:\ProgramData\Chocolatey\choco.exe install -y --ignore-checksums resourcehacker
 
 
 REM Install Python modules
+C:\ProgramData\Chocolatey\choco.exe install -y vcpython27
 C:\Python27\Scripts\pip2.exe install pywin32
 C:\Python27\Scripts\pip2.exe install pycrypto
 
