@@ -24,6 +24,8 @@ REM Install Python modules
 C:\ProgramData\Chocolatey\choco.exe install -y vcpython27
 C:\Python27\Scripts\pip2.exe install pywin32
 C:\Python27\Scripts\pip2.exe install pycrypto
+C:\Python27\Scripts\pip2.exe install lief
+C:\Python27\Scripts\pip2.exe install winappdbg
 
 
 REM Install tools (x64 only)
