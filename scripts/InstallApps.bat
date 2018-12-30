@@ -4,6 +4,7 @@
 REM Install tools (generic)
 C:\ProgramData\Chocolatey\choco.exe install -y 7zip.install
 C:\ProgramData\Chocolatey\choco.exe install -y python2
+C:\ProgramData\Chocolatey\choco.exe install -y python3
 C:\ProgramData\Chocolatey\choco.exe install -y ConEmu
 C:\ProgramData\Chocolatey\choco.exe install -y GoogleChrome
 C:\ProgramData\Chocolatey\choco.exe install -y SysInternals
