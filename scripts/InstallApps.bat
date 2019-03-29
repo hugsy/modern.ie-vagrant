@@ -29,6 +29,8 @@ C:\Python27\Scripts\pip2.exe install pycrypto
 C:\Python27\Scripts\pip2.exe install lief
 C:\Python27\Scripts\pip2.exe install winappdbg
 
+C:\Python37\Scripts\pip3.exe install frida-tools
+
 
 REM Install tools (x64 only)
 IF "%PROCESSOR_ARCHITECTURE%"=="x86" goto Finish
