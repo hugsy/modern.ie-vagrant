@@ -18,8 +18,9 @@ REM C:\ProgramData\Chocolatey\choco.exe install -y windowsdriverkit10
 C:\ProgramData\Chocolatey\choco.exe install -y HxD
 C:\ProgramData\Chocolatey\choco.exe install -y explorersuite
 C:\ProgramData\Chocolatey\choco.exe install -y apimonitor
-C:\ProgramData\Chocolatey\choco.exe install -y --ignore-checksums resourcehacker.portable
-
+REM C:\ProgramData\Chocolatey\choco.exe install -y resourcehacker.portable
+REM C:\ProgramData\Chocolatey\choco.exe install -y wireshark winpcap
+C:\ProgramData\Chocolatey\choco.exe install -y ghidra
 
 REM Install Python modules
 C:\ProgramData\Chocolatey\choco.exe install -y vcpython27
@@ -28,14 +29,16 @@ C:\Python27\Scripts\pip2.exe install pywin32
 C:\Python27\Scripts\pip2.exe install pycrypto
 C:\Python27\Scripts\pip2.exe install lief
 C:\Python27\Scripts\pip2.exe install winappdbg
+C:\Python27\Scripts\pip2.exe install requests
 
 C:\Python37\Scripts\pip3.exe install frida-tools
-
+C:\Python37\Scripts\pip3.exe install requests
+C:\Python37\Scripts\pip3.exe install lief
+C:\Python37\Scripts\pip3.exe install pywin32
 
 REM Install tools (x64 only)
 IF "%PROCESSOR_ARCHITECTURE%"=="x86" goto Finish
 C:\ProgramData\Chocolatey\choco.exe install -y ida-free
-
 
 :Finish
 exit
