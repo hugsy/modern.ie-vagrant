@@ -150,4 +150,15 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--usb", "off"]
     vb.customize ["guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 10000]
   end
+  
+  # esxi specifics
+  config.vm.provider :vmware_esxi do |esxi|
+    esxi.esxi_hostname = "esxi"
+    esxi.esxi_username = "hugsy"
+    esxi.esxi_password = "prompt:"
+    esxi_virtual_network = "VM Internal"
+    esxi.esxi_disk_store = "VMs"
+    esxi.guest_memsize = "2048"
+    esxi.guest_numvcpus = "2"
+  end
 end
