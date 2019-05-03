@@ -19,25 +19,27 @@
 #
 
 
-VMS = [
-  "ie6.xp.vagrant",        # 0
-  "ie8.xp.vagrant",        # 1
-  "ie7.vista.vagrant",     # 2
-  "ie8.win7.vagrant",      # 3
-  "ie9.win7.vagrant",      # 4
-  "ie10.win7.vagrant",     # 5
-  "ie11.win7.vagrant",     # 6  <default>
-  "ie10.win8.vagrant",     # 7
-  "ie11.win81.vagrant",    # 8
-  "msedge.win10.vagrant",  # 9
-]
 
-VM_INDEX = 6 # change to an index in the array VMS (default: win7-ie11)
+VMS = {
+  "ie6.xp.vagrant" => "http://aka.ms/ie6.winxp.vagrant.zip",
+  "ie8.xp.vagrant" => "http://aka.ms/ie8.winxp.vagrant.zip",
+  "ie7.vista.vagrant" => "http://aka.ms/ie7.vista.vagrant.zip",
+  "ie8.win7.vagrant" => "http://aka.ms/ie8.win7.vagrant.zip",
+  "ie9.win7.vagrant" => "http://aka.ms/ie9.win7.vagrant.zip",
+  "ie10.win7.vagrant" => "http://aka.ms/ie10.win7.vagrant.zip",
+  "ie11.win7.vagrant" => "http://aka.ms/ie11.win7.vagrant.zip",
+  "ie10.win8.vagrant" => "http://aka.ms/ie10.win8.vagrant.zip",
+  "ie11.win81.vagrant" => "http://aka.ms/ie10.win81.vagrant.zip",
+  "msedge.win10.th1.vagrant" => "https://az792536.vo.msecnd.net/vms/VMBuild_20150916/Vagrant/boxes/MsEdge.Win10.Vagrant.zip",
+  "msedge.win10.1809.vagrant" => "https://az792536.vo.msecnd.net/vms/VMBuild_20190311/Vagrant/MSEdge/MSEdge.Win10.Vagrant.zip",
+}
 
-VM = ENV['VM'] ? VMS[ ENV['VM'].to_i ] : VMS[VM_INDEX]
+DEFAULT_VM = "msedge.win10.1809.vagrant"
+VM = VMS[ ENV['VM'] ].nil? ? DEFAULT_VM : ENV['VM']
+URL = VMS[VM]
+ZIP = VM + ".zip"
 FIRSTBOOT = ENV['FIRSTBOOT'] ? true : false            # change to false here after RunFirstBoot was executed
 MINUTE = 60
-
 _retry = false
 
 
@@ -46,25 +48,20 @@ list_vms=`vagrant box list`
 vm_name="modern.ie/#{VM}"
 if !list_vms.include? vm_name
   puts "=> Missing #{vm_name}, downloading..."
-  if VM=="msedge.win10.vagrant"
-    url="https://vagrantcloud.com/Microsoft/boxes/EdgeOnWindows10/versions/1.0/providers/virtualbox.box"
-  else
-    url="http://aka.ms/#{VM}"
-  end
-  system "wget --no-check-certificate --output-document=/tmp/#{VM}.zip #{url}"
+  system "wget --no-check-certificate --output-document=/tmp/#{ZIP} #{URL}"
   puts "=> Extracting image '#{VM}'..."
-  system "unzip -d /tmp/#{VM} /tmp/#{VM}.zip"
+  system "unzip -d /tmp/#{VM} /tmp/#{ZIP}"
   puts "=> Importing the box '#{vm_name}'..."
   system "bash -c 'cd / && vagrant box add --name #{vm_name}  /tmp/#{VM}/*.box'"
   puts "=> Cleaning up..."
-  system "rm -fr -- /tmp/#{VM} /tmp/#{VM}.zip"
+  system "rm -fr -- /tmp/#{VM} /tmp/#{ZIP}"
   puts "=> Done!"
   _retry = true
 end
 
 
 # install plugins
-required_plugins = %w( winrm rdp )
+required_plugins = %w( vagrant-winrm vagrant-rdp vagrant-winrm-syncedfolder vagrant-vmware-esxi )
 required_plugins.each do |plugin|
   unless Vagrant.has_plugin? plugin
     system "vagrant plugin install #{plugin}"
