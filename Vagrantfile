@@ -61,7 +61,7 @@ end
 
 
 # install plugins
-required_plugins = %w( vagrant-winrm vagrant-rdp vagrant-winrm-syncedfolder vagrant-vmware-esxi )
+required_plugins = %w( vagrant-rdp vagrant-winrm-syncedfolder vagrant-vmware-esxi )
 required_plugins.each do |plugin|
   unless Vagrant.has_plugin? plugin
     system "vagrant plugin install #{plugin}"
