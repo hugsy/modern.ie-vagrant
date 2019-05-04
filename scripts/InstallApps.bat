@@ -20,7 +20,7 @@ C:\ProgramData\Chocolatey\choco.exe install -y explorersuite
 C:\ProgramData\Chocolatey\choco.exe install -y apimonitor
 REM C:\ProgramData\Chocolatey\choco.exe install -y resourcehacker.portable
 REM C:\ProgramData\Chocolatey\choco.exe install -y wireshark winpcap
-C:\ProgramData\Chocolatey\choco.exe install -y ghidra
+C:\ProgramData\Chocolatey\choco.exe install -y ghidra --version=9.0.2
 
 REM Install Python modules
 C:\ProgramData\Chocolatey\choco.exe install -y vcpython27
