@@ -17,7 +17,7 @@ namespace Wallpaper
 
       public static void SetWallpaper (string path ) {
          SystemParametersInfo( SetDesktopWallpaper, 0, path, UpdateIniFile | SendWinIniChange );
-         RegistryKey key = Registry.CurrentUser.OpenSubKey("Control Panel\\Desktop", true);
+         RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
          key.SetValue(@"WallpaperStyle", "2") ;
          key.SetValue(@"TileWallpaper", "0") ;
          key.Close();
@@ -26,4 +26,9 @@ namespace Wallpaper
 }
 "@
 
-[Wallpaper.Setter]::SetWallpaper('C:\Users\IEUser\wallpaper.jpg')
+$WallpaperRemoteFile = "https://github.com/hugsy/modern.ie-vagrant/raw/master/scripts/wallpaper.jpg"
+$WallpaperLocalFile = $ENV:HOMEDRIVE + "" + $ENV:HOMEPATH + "\wallpaper.jpg"
+(New-Object System.Net.WebClient).DownloadFile($WallpaperRemoteFile, $WallpaperLocalFile)
+Write-Output "[+] Copied wallpaper to '$WallPaperLocalFile'"
+[Wallpaper.Setter]::SetWallpaper($WallPaperLocalFile)
+Write-Output "[+] Applied wallpaper"
