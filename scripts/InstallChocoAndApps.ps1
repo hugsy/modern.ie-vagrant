@@ -42,7 +42,7 @@ if ($IsX64)
 
 $DevAppList = @(
     "windowsdriverkit10",
-    "vscode",
+    "vcbuildtools",
     "llvm"
 )
 
