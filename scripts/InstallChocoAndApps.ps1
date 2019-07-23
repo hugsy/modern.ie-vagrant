@@ -43,7 +43,8 @@ if ($IsX64)
 $DevAppList = @(
     "windowsdriverkit10",
     "vcbuildtools",
-    "llvm"
+    "llvm",
+    "mingw"
 )
 
 $AppsToInstall = $MinAppList
