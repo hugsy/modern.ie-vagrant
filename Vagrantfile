@@ -21,17 +21,16 @@
 
 
 VMS = {
-  "ie6.xp.vagrant" => "http://aka.ms/ie6.winxp.vagrant.zip",
-  "ie8.xp.vagrant" => "http://aka.ms/ie8.winxp.vagrant.zip",
-  "ie7.vista.vagrant" => "http://aka.ms/ie7.vista.vagrant.zip",
-  "ie8.win7.vagrant" => "http://aka.ms/ie8.win7.vagrant.zip",
-  "ie9.win7.vagrant" => "http://aka.ms/ie9.win7.vagrant.zip",
-  "ie10.win7.vagrant" => "http://aka.ms/ie10.win7.vagrant.zip",
-  "ie11.win7.vagrant" => "http://aka.ms/ie11.win7.vagrant.zip",
-  "ie10.win8.vagrant" => "http://aka.ms/ie10.win8.vagrant.zip",
-  "ie11.win81.vagrant" => "http://aka.ms/ie10.win81.vagrant.zip",
-  "msedge.win10.th1.vagrant" => "https://az792536.vo.msecnd.net/vms/VMBuild_20150916/Vagrant/boxes/MsEdge.Win10.Vagrant.zip",
-  "msedge.win10.1809.vagrant" => "https://az792536.vo.msecnd.net/vms/VMBuild_20190311/Vagrant/MSEdge/MSEdge.Win10.Vagrant.zip",
+  "ie6.xp.vagrant" => "http://aka.ms/ie6.xp.vagrant",
+  "ie8.xp.vagrant" => "http://aka.ms/ie8.xp.vagrant",
+  "ie7.vista.vagrant" => "http://aka.ms/ie7.vista.vagrant",
+  "ie8.win7.vagrant" => "http://aka.ms/ie8.win7.vagrant",
+  "ie9.win7.vagrant" => "http://aka.ms/ie9.win7.vagrant",
+  "ie10.win7.vagrant" => "http://aka.ms/ie10.win7.vagrant",
+  "ie11.win7.vagrant" => "http://aka.ms/ie11.win7.vagrant",
+  "ie10.win8.vagrant" => "http://aka.ms/ie10.win8.vagrant",
+  "ie11.win81.vagrant" => "http://aka.ms/ie11.win81.vagrant",
+  "msedge.win10.1809.vagrant" => "http://aka.ms/msedge.win10.vagrant",
 }
 
 DEFAULT_VM = "msedge.win10.1809.vagrant"
