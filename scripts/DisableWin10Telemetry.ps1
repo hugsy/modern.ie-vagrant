@@ -52,10 +52,19 @@ namespace PsRegistry
 "@
 
 
-#
-# Basic telemetry disabling script
-#
+# Disable Windows Defender sandboxing
+setx /M MP_FORCE_USE_SANDBOX 0
 
+# Disable Windows Error Reporting
+Disable-WindowsErrorReporting
+
+# Totally disable Windows Defender
+Set-MpPreference -DisableRealtimeMonitoring $true
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" -Name DisableAntiSpyware -Value 1 -PropertyType DWORD -Force
+Remove-WindowsFeature Windows-Defender, Windows-Defender-GUI
+
+
+# Basic telemetry disabling script
 Add-Content $ENV:WinDir\System32\Drivers\etc\hosts "## BEGIN Windows 10 privacy settings"
 Add-Content $ENV:WinDir\System32\Drivers\etc\hosts "127.0.0.1 vortex.data.microsoft.com"
 Add-Content $ENV:WinDir\System32\Drivers\etc\hosts "127.0.0.1 vortex-win.data.microsoft.com"
@@ -123,7 +132,9 @@ Get-Service DiagTrack | Set-Service -StartupType Disabled
 Get-Service DmwapPushService | Set-Service -StartupType Disabled
 [PsRegistry.Global]::SetDwordValue("SOFTWARE\Policies\Microsoft\Windows\DataCollection", "AllowTelemetry", 0)
 
-# Enable Windows Defender sandboxing
-# setx /M MP_FORCE_USE_SANDBOX 1
 
+
+
+
+# End
 Write-Output("[+] Done!")
