@@ -33,6 +33,7 @@ $ReverseAppList = @(
     "ApiMonitor",
     "ExplorerSuite",
     "HxD",
+    "reshack",
     "Ghidra"
 )
 if ($IsX64)
