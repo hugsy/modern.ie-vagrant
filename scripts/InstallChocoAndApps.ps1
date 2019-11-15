@@ -56,6 +56,8 @@ for ($i = 0; $i -le ($AppsToInstall.length - 1); $i += 1)
     C:\ProgramData\Chocolatey\choco.exe install --yes --no-progress $AppsToInstall[$i]
 }
 
+RefreshEnv.cmd
+
 
 Write-Host("[+] Installing pip packages...")
 $PipPackages = @(
@@ -67,7 +69,7 @@ $PipPackages = @(
 )
 for ($i = 0; $i -le ($PipPackages.length - 1); $i += 1)
 {
-    C:\Python37\python.exe -m pip install --upgrade --disable-pip-version-check --quiet $PipPackages[$i]
+    python.exe -m pip install --upgrade --disable-pip-version-check --quiet $PipPackages[$i]
 }
 
 
