@@ -19,7 +19,6 @@ $MinAppList = @(
     "ProcessHacker",
     "notepadplusplus.install",
     "FireFox",
-    "GoogleChrome"
 )
 
 $OfficeAppList = @(
