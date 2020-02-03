@@ -81,5 +81,5 @@ setx /M MP_FORCE_USE_SANDBOX 1
 REM Disable user-tracking
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Start_TrackProgs /t REG_DWORD /d 0 /f
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Start_TrackEnabled /t REG_DWORD /d 0 /f
-
+REM need delete every guid in HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\
 REM Finished.
