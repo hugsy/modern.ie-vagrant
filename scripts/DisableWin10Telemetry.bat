@@ -79,6 +79,7 @@ REM Enable Windows Defender sandboxing
 setx /M MP_FORCE_USE_SANDBOX 1
 
 REM Disable user-tracking
-
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Start_TrackProgs /t REG_DWORD /d 0 /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Start_TrackEnabled /t REG_DWORD /d 0 /f
 
 REM Finished.
