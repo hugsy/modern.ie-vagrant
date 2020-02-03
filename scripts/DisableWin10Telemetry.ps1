@@ -132,8 +132,9 @@ Get-Service DiagTrack | Set-Service -StartupType Disabled
 Get-Service DmwapPushService | Set-Service -StartupType Disabled
 [PsRegistry.Global]::SetDwordValue("SOFTWARE\Policies\Microsoft\Windows\DataCollection", "AllowTelemetry", 0)
 
-
-
+# Disable UserAssist
+[PsRegistry.Local]::SetDwordValue("SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "Start_TrackProgs", 0)
+[PsRegistry.Local]::SetDwordValue("SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced", "Start_TrackEnabled", 0)
 
 
 # End
