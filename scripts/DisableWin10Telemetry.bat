@@ -78,4 +78,7 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection\ /v AllowTelemet
 REM Enable Windows Defender sandboxing
 setx /M MP_FORCE_USE_SANDBOX 1
 
+REM Disable user-tracking
+
+
 REM Finished.
