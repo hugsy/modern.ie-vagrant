@@ -18,6 +18,7 @@ $MinAppList = @(
     "SysInternals",
     "ProcessHacker",
     "notepadplusplus.install",
+    "microsoft-edge",
     "FireFox",
 )
 
