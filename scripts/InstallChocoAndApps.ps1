@@ -13,13 +13,21 @@ $IsX64 = [IntPtr]::Size -eq 8
 
 $MinAppList = @(
     "7zip.install",
-    "python3",
     "ConEmu",
-    "SysInternals",
-    "ProcessHacker",
-    "notepadplusplus.install",
-    "microsoft-edge",
     "FireFox",
+    "GoogleChrome",
+    "ProcessHacker",
+    "SysInternals",
+    "curl",
+    "git.install",
+    "jq",
+    "microsoft-edge",
+    "neovim",
+    "notepadplusplus.install",
+    "python3",
+    "vscode",
+    "wget",
+    "wireshark"
 )
 
 $OfficeAppList = @(
@@ -59,18 +67,18 @@ for ($i = 0; $i -le ($AppsToInstall.length - 1); $i += 1)
 RefreshEnv.cmd
 
 
-Write-Host("[+] Installing pip packages...")
-$PipPackages = @(
-    "pip",
-    "pywin32",
-    "pycrypto",
-    "lief",
-    "winappdbg"
-)
-for ($i = 0; $i -le ($PipPackages.length - 1); $i += 1)
-{
-    python.exe -m pip install --upgrade --disable-pip-version-check --quiet $PipPackages[$i]
-}
+# Write-Host("[+] Installing pip packages...")
+# $PipPackages = @(
+#     "pip",
+#     "pywin32",
+#     "pycrypto",
+#     "lief",
+#     "winappdbg"
+# )
+# for ($i = 0; $i -le ($PipPackages.length - 1); $i += 1)
+# {
+#     python.exe -m pip install --upgrade --disable-pip-version-check --quiet $PipPackages[$i]
+# }
 
 
 Write-Host("[+] Done!")
