@@ -19,12 +19,14 @@ $MinAppList = @(
     "ProcessHacker",
     "SysInternals",
     "curl",
+    "ditto",
     "git.install",
     "jq",
     "microsoft-edge",
     "neovim",
     "notepadplusplus.install",
     "python3",
+    "teracopy",
     "vscode",
     "wget",
     "wireshark"
@@ -33,7 +35,8 @@ $MinAppList = @(
 $OfficeAppList = @(
     "irfanview",
     "vlc",
-    "sumatrapdf.install"
+    "sumatrapdf.install",
+    "microsoft-office-deployment"
 )
 
 $ReverseAppList = @(
@@ -56,9 +59,9 @@ $DevAppList = @(
     "mingw"
 )
 
-$AppsToInstall = $MinAppList
+# $AppsToInstall = $MinAppList
 $AppsToInstall += $OfficeAppList
-$AppsToInstall += $ReverseAppList
+# $AppsToInstall += $ReverseAppList
 for ($i = 0; $i -le ($AppsToInstall.length - 1); $i += 1)
 {
     C:\ProgramData\Chocolatey\choco.exe install --yes --no-progress $AppsToInstall[$i]
