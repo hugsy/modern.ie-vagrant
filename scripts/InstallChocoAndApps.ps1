@@ -13,19 +13,30 @@ $IsX64 = [IntPtr]::Size -eq 8
 
 $MinAppList = @(
     "7zip.install",
-    "python3",
     "ConEmu",
-    "SysInternals",
-    "ProcessHacker",
-    "notepadplusplus.install",
-    "microsoft-edge",
     "FireFox",
+    "GoogleChrome",
+    "ProcessHacker",
+    "SysInternals",
+    "curl",
+    "ditto",
+    "git.install",
+    "jq",
+    "microsoft-edge",
+    "neovim",
+    "notepadplusplus.install",
+    "python3",
+    "teracopy",
+    "vscode",
+    "wget",
+    "wireshark"
 )
 
 $OfficeAppList = @(
     "irfanview",
     "vlc",
-    "sumatrapdf.install"
+    "sumatrapdf.install",
+    "microsoft-office-deployment"
 )
 
 $ReverseAppList = @(
@@ -48,9 +59,9 @@ $DevAppList = @(
     "mingw"
 )
 
-$AppsToInstall = $MinAppList
+# $AppsToInstall = $MinAppList
 $AppsToInstall += $OfficeAppList
-$AppsToInstall += $ReverseAppList
+# $AppsToInstall += $ReverseAppList
 for ($i = 0; $i -le ($AppsToInstall.length - 1); $i += 1)
 {
     C:\ProgramData\Chocolatey\choco.exe install --yes --no-progress $AppsToInstall[$i]
@@ -59,18 +70,18 @@ for ($i = 0; $i -le ($AppsToInstall.length - 1); $i += 1)
 RefreshEnv.cmd
 
 
-Write-Host("[+] Installing pip packages...")
-$PipPackages = @(
-    "pip",
-    "pywin32",
-    "pycrypto",
-    "lief",
-    "winappdbg"
-)
-for ($i = 0; $i -le ($PipPackages.length - 1); $i += 1)
-{
-    python.exe -m pip install --upgrade --disable-pip-version-check --quiet $PipPackages[$i]
-}
+# Write-Host("[+] Installing pip packages...")
+# $PipPackages = @(
+#     "pip",
+#     "pywin32",
+#     "pycrypto",
+#     "lief",
+#     "winappdbg"
+# )
+# for ($i = 0; $i -le ($PipPackages.length - 1); $i += 1)
+# {
+#     python.exe -m pip install --upgrade --disable-pip-version-check --quiet $PipPackages[$i]
+# }
 
 
 Write-Host("[+] Done!")
