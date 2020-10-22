@@ -3,6 +3,9 @@
 #
 # > Set-ExecutionPolicy Bypass -Scope Process -Force
 #
+# Then auto-run :
+# > iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/hugsy/modern.ie-vagrant/master/scripts/InstallChocoAndApps.ps1'))
+#
 
 Write-Host("[+] Downloading and installing choco...")
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
