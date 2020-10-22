@@ -22,7 +22,7 @@ $MinAppList = @(
     "notepad3"
 )
 
-ExtraAppList = @(
+$ExtraAppList = @(
     "microsoft-edge",
     "FireFox"  
 )
