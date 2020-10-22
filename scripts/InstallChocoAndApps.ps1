@@ -70,8 +70,9 @@ $PipPackages = @(
     "pip",
     "pywin32",
     "pycrypto",
-    "lief",
-    "winappdbg"
+    "winappdbg",
+    "requests",
+    "magic-wormhole"
 )
 for ($i = 0; $i -le ($PipPackages.length - 1); $i += 1)
 {
