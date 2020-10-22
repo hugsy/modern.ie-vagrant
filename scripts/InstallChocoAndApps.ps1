@@ -1,7 +1,7 @@
 #
 # Open a PowerShell console as Administrator and copy/paste
 #
-# > Set-ExecutionPolicy Bypass -Scope Process -Force
+# > Set-ExecutionPolicy Bypass -Scope LocalMachine -Force
 #
 # Then auto-run :
 # > iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/hugsy/modern.ie-vagrant/master/scripts/InstallChocoAndApps.ps1'))
@@ -75,7 +75,7 @@ $PipPackages = @(
 )
 for ($i = 0; $i -le ($PipPackages.length - 1); $i += 1)
 {
-    python.exe -m pip install --upgrade --disable-pip-version-check --quiet $PipPackages[$i]
+    c:\python39\python.exe -m pip install --upgrade --disable-pip-version-check --quiet $PipPackages[$i]
 }
 
 
