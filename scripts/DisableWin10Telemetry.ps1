@@ -1,3 +1,8 @@
+# Basic Win10 telemetry disable script
+#
+# > iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/hugsy/modern.ie-vagrant/master/scripts/DisableWin10Telemetry.ps1'))
+#
+
 Add-Type @"
 using System;
 using System.Runtime.InteropServices;
