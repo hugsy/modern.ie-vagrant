@@ -14,12 +14,14 @@ $IsX64 = [IntPtr]::Size -eq 8
 $MinAppList = @(
     "7zip.install",
     "python3",
-    "ConEmu",
     "SysInternals",
     "ProcessHacker",
-    "notepadplusplus.install",
+    "notepad3"
+)
+
+ExtraAppList = @(
     "microsoft-edge",
-    "FireFox",
+    "FireFox"  
 )
 
 $OfficeAppList = @(
@@ -49,8 +51,9 @@ $DevAppList = @(
 )
 
 $AppsToInstall = $MinAppList
-$AppsToInstall += $OfficeAppList
-$AppsToInstall += $ReverseAppList
+# $AppsToInstall += $ExtraAppList
+# $AppsToInstall += $OfficeAppList
+# $AppsToInstall += $ReverseAppList
 for ($i = 0; $i -le ($AppsToInstall.length - 1); $i += 1)
 {
     C:\ProgramData\Chocolatey\choco.exe install --yes --no-progress $AppsToInstall[$i]
